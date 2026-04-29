@@ -68,7 +68,9 @@
 
   networking.hostName = "selims-server";
 
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.domain = "selimeser.com";
+
+  networking.firewall.allowedTCPPorts = [ 80 443 22 ];
 
   system.stateVersion = "24.11";
 }
