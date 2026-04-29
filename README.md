@@ -1,4 +1,5 @@
 # Basic NixOS Configuration Flake w/ Lock
+NixOS installed on Hetzner Cloud Server via [Traditional ISO Installation](https://wiki.nixos.org/wiki/Install_NixOS_on_Hetzner_Cloud)
 ## Hetzner Cloud Server Specs
 - Name: CX23
 - ARCHITECTURE: x86 (Intel/AMD)
