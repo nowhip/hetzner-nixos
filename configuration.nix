@@ -45,6 +45,10 @@
        openssh.authorizedKeys.keys = [
          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsJHmi82YhxJd4f7Cmh5O0k5WkakyOn7o8b5JXqA4xM daniil"
        ];
+       packages = with pkgs; [
+         python3
+         asciiquarium
+       ];
      };
      boris = {
        isNormalUser = true;
