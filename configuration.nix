@@ -3,7 +3,7 @@
 {
   nix.settings = { experimental-features = "nix-command flakes"; };
 
-  environment.systemPackages = [ pkgs.git pkgs.nixfmt ];
+  environment.systemPackages = [ pkgs.git pkgs.nixfmt-classic ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos";
