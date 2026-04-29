@@ -7,6 +7,7 @@
    
    environment.systemPackages = [
      pkgs.git
+     pkgs.nixfmt
    ];
    
    fileSystems."/" = {

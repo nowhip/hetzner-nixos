@@ -7,7 +7,7 @@ NixOS installed on Hetzner Cloud Server via [Traditional ISO Installation](https
 - RAM: 4 GB
 - SSD: 40 GB
 ## Includes
-- Git preinstalled
+- Git, Nixfmt preinstalled
 - SSH only access w/ root disabled (password login disabled)
 - User Group Wheel sudo Permission w/o Password Entry
 - User Profiles w/ authorized_keys
