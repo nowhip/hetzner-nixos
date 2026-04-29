@@ -52,6 +52,12 @@
          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhMNIBDVF0CY6eoCOQatiUzqKNUHr8vFJUaOqwRVCOf boris"
        ];
      };
+     erkin = {
+       isNormalUser = true;
+       openssh.authorizedKeys.keys = [
+         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4DEcXxqjv6irSJMhkaovNbQ+swy8UHmb2l6dakp2nw erkin"
+       ];
+     };
    };
 
    security.sudo.wheelNeedsPassword = false;
