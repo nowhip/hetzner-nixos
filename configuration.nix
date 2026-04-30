@@ -157,12 +157,13 @@
     };
   };
 
-  security.acme.certs = {
-    "foo.example.com" = { email = "selim@latch-dating.de"; };
-    "ws-boardinghouse.de" = { email = "info@ws-boardinghouse.de"; };
+  security.acme = {
+    acceptTerms = true;
+    certs = {
+      "latch-dating.de" = { email = "selim@latch-dating.de"; };
+      "ws-boardinghouse.de" = { email = "info@ws-boardinghouse.de"; };
+    };
   };
-
-  security.acme = { acceptTerms = true; };
 
   networking.hostName = "selims-server";
 
