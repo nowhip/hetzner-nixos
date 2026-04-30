@@ -36,25 +36,28 @@
     };
     daniil = {
       isNormalUser = true;
+      group = "users";
+      homeMode = "770";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsJHmi82YhxJd4f7Cmh5O0k5WkakyOn7o8b5JXqA4xM daniil@computer"
       ];
-      homeMode = "755";
       packages = with pkgs; [ python3 asciiquarium ];
     };
     boris = {
       isNormalUser = true;
+      group = "users";
+      homeMode = "770";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhMNIBDVF0CY6eoCOQatiUzqKNUHr8vFJUaOqwRVCOf boris@computer"
       ];
-      homeMode = "755";
     };
     erkin = {
       isNormalUser = true;
+      group = "users";
+      homeMode = "770";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4DEcXxqjv6irSJMhkaovNbQ+swy8UHmb2l6dakp2nw erkin@computer"
       ];
-      homeMode = "755";
     };
   };
 
