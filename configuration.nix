@@ -112,50 +112,32 @@
       "latch-dating.de" = {
         enableACME = true;
         forceSSL = true;
-        acmeRoot = "/var/lib/acme/acme-challenge";
 
         locations."/" = {
           proxyPass = "http://127.0.0.1:3000";
           proxyWebsockets = true;
-
-          extraConfig = ''
-            proxy_set_header Host $host;
-            proxy_set_header X-Forwarded-Host $host;
-            proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          '';
         };
       };
 
       "www.latch-dating.de" = {
         enableACME = true;
         forceSSL = true;
-        acmeRoot = "/var/lib/acme/acme-challenge";
         globalRedirect = "latch-dating.de";
       };
 
       "ws-boardinghouse.de" = {
         enableACME = true;
         forceSSL = true;
-        acmeRoot = "/var/lib/acme/acme-challenge";
 
         locations."/" = {
           proxyPass = "http://127.0.0.1:3001";
           proxyWebsockets = true;
-
-          extraConfig = ''
-            proxy_set_header Host $host;
-            proxy_set_header X-Forwarded-Host $host;
-            proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          '';
         };
       };
 
       "www.ws-boardinghouse.de" = {
         enableACME = true;
         forceSSL = true;
-        acmeRoot = "/var/lib/acme/acme-challenge";
         globalRedirect = "ws-boardinghouse.de";
       };
     };
@@ -165,22 +147,10 @@
     acceptTerms = true;
 
     certs = {
-      "latch-dating.de" = {
-        email = "selim@latch-dating.de";
-        webroot = "/var/lib/acme/acme-challenge";
-      };
-      "www.latch-dating.de" = {
-        email = "selim@latch-dating.de";
-        webroot = "/var/lib/acme/acme-challenge";
-      };
-      "ws-boardinghouse.de" = {
-        email = "info@ws-boardinghouse.de";
-        webroot = "/var/lib/acme/acme-challenge";
-      };
-      "www.ws-boardinghouse.de" = {
-        email = "info@ws-boardinghouse.de";
-        webroot = "/var/lib/acme/acme-challenge";
-      };
+      "latch-dating.de".email = "selim@latch-dating.de";
+      "www.latch-dating.de".email = "selim@latch-dating.de";
+      "ws-boardinghouse.de".email = "info@ws-boardinghouse.de";
+      "www.ws-boardinghouse.de".email = "info@ws-boardinghouse.de";
     };
   };
 
