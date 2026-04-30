@@ -112,6 +112,7 @@
       "latch-dating.de" = {
         enableACME = true;
         forceSSL = true;
+        acmeRoot = "/var/lib/acme/acme-challenge";
 
         locations."/" = {
           proxyPass = "http://127.0.0.1:3000";
@@ -129,12 +130,14 @@
       "www.latch-dating.de" = {
         enableACME = true;
         forceSSL = true;
+        acmeRoot = "/var/lib/acme/acme-challenge";
         globalRedirect = "latch-dating.de";
       };
 
       "ws-boardinghouse.de" = {
         enableACME = true;
         forceSSL = true;
+        acmeRoot = "/var/lib/acme/acme-challenge";
 
         locations."/" = {
           proxyPass = "http://127.0.0.1:3001";
@@ -152,6 +155,7 @@
       "www.ws-boardinghouse.de" = {
         enableACME = true;
         forceSSL = true;
+        acmeRoot = "/var/lib/acme/acme-challenge";
         globalRedirect = "ws-boardinghouse.de";
       };
     };
@@ -159,10 +163,7 @@
 
   security.acme = {
     acceptTerms = true;
-    defaults = {
-      email = "selimyag.eser@gmail.com";
-      webroot = "/var/lib/acme/acme-challenge";
-    };
+
     certs = {
       "latch-dating.de" = {
         email = "selim@latch-dating.de";
