@@ -14,3 +14,5 @@ NixOS installed on Hetzner Cloud Server via [Traditional ISO Installation](https
 - Vscode Remote Explorer w/ vscode-server
 - Timezone, Locale and Console Keymap
 - Network Hostname
+## Remote Deployment (Internet Connection on Machine required)
+```sudo nixos-rebuild switch --flake github:nowhip/hetzner-nixos#selims-server``` 
