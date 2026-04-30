@@ -71,6 +71,8 @@
     wantedBy = [ "multi-user.target" ];
     after = [ "network.target" ];
 
+    path = with pkgs; [ bash nodejs_22 ];
+
     serviceConfig = {
       User = "selim";
       WorkingDirectory = "/home/selim/latch-landing-page";
