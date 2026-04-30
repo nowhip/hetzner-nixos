@@ -84,7 +84,7 @@
   services.nginx = {
     enable = true;
 
-    virtualHosts."selimeser.com" = {
+    virtualHosts."latch-dating.de" = {
       enableACME = true;
       forceSSL = true;
 
@@ -97,7 +97,7 @@
 
   security.acme = {
     acceptTerms = true;
-    defaults.email = "selim@selimeser.com";
+    defaults.email = "selim@latch-dating.de";
   };
 
   networking.hostName = "selims-server";
