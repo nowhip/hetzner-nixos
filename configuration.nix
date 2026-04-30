@@ -39,6 +39,7 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMsJHmi82YhxJd4f7Cmh5O0k5WkakyOn7o8b5JXqA4xM daniil@computer"
       ];
+      homeDirectoryPermissions = "755";
       packages = with pkgs; [ python3 asciiquarium ];
     };
     boris = {
@@ -46,12 +47,14 @@
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOhMNIBDVF0CY6eoCOQatiUzqKNUHr8vFJUaOqwRVCOf boris@computer"
       ];
+      homeDirectoryPermissions = "755";
     };
     erkin = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4DEcXxqjv6irSJMhkaovNbQ+swy8UHmb2l6dakp2nw erkin@computer"
       ];
+      homeDirectoryPermissions = "755";
     };
   };
 
