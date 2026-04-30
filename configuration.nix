@@ -75,7 +75,7 @@
 
     serviceConfig = {
       User = "selim";
-      WorkingDirectory = "/home/selim/latch-landing-page";
+      WorkingDirectory = "/opt/latch-landing-page";
       ExecStart = "${pkgs.nodejs_22}/bin/npm run start";
       Restart = "always";
     };
@@ -101,8 +101,6 @@
   };
 
   networking.hostName = "selims-server";
-
-  networking.domain = "selimeser.com";
 
   networking.firewall.allowedTCPPorts = [ 80 443 22 ];
 
