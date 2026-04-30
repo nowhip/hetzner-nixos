@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   nix.settings = { experimental-features = "nix-command flakes"; };
@@ -64,6 +64,38 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
+  };
+
+  systemd.services.latch-landing-page = {
+    description = "latch-landing-page";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+
+    serviceConfig = {
+      User = "selim";
+      WorkingDirectory = "/home/selim/latch-landing-page";
+      ExecStart = "${pkgs.nodejs_22}/bin/npm run start";
+      Restart = "always";
+    };
+  };
+
+  services.nginx = {
+    enable = true;
+
+    virtualHosts."selimeser.com" = {
+      enableACME = true;
+      forceSSL = true;
+
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:3000";
+        proxyWebsockets = true;
+      };
+    };
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "selim@selimeser.com";
   };
 
   networking.hostName = "selims-server";
