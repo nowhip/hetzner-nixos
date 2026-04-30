@@ -159,6 +159,10 @@
 
   security.acme = {
     acceptTerms = true;
+    defaults = {
+      email = "selimyag.eser@gmail.com";
+      webroot = "/var/lib/acme/acme-challenge";
+    };
     certs = {
       "latch-dating.de" = {
         email = "selim@latch-dating.de";
