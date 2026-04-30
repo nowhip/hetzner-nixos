@@ -161,7 +161,9 @@
     acceptTerms = true;
     certs = {
       "latch-dating.de" = { email = "selim@latch-dating.de"; };
+      "www.latch-dating.de" = { email = "selim@latch-dating.de"; };
       "ws-boardinghouse.de" = { email = "info@ws-boardinghouse.de"; };
+      "www.ws-boardinghouse.de" = { email = "info@ws-boardinghouse.de"; };
     };
   };
 
