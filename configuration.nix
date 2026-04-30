@@ -72,18 +72,35 @@
     };
   };
 
-  systemd.services.latch-landing-page = {
-    description = "latch-landing-page";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+  systemd.services = {
+    latch-landing-page = {
+      description = "latch-landing-page";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
 
-    path = with pkgs; [ bash nodejs_22 ];
+      path = with pkgs; [ bash nodejs_22 ];
 
-    serviceConfig = {
-      User = "selim";
-      WorkingDirectory = "/opt/latch-landing-page";
-      ExecStart = "${pkgs.nodejs_22}/bin/npm run start";
-      Restart = "always";
+      serviceConfig = {
+        User = "selim";
+        WorkingDirectory = "/opt/latch-landing-page";
+        ExecStart = "${pkgs.nodejs_22}/bin/npm run start";
+        Restart = "always";
+      };
+    };
+
+    ws-landing-page = {
+      description = "ws-landing-page";
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+
+      path = with pkgs; [ bash nodejs_22 ];
+
+      serviceConfig = {
+        User = "selim";
+        WorkingDirectory = "/opt/ws-landing-page";
+        ExecStart = "${pkgs.nodejs_22}/bin/npm run start";
+        Restart = "always";
+      };
     };
   };
 
@@ -114,13 +131,38 @@
         forceSSL = true;
         globalRedirect = "latch-dating.de";
       };
+
+      "ws-boardinghouse.de" = {
+        enableACME = true;
+        forceSSL = true;
+
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:3001";
+          proxyWebsockets = true;
+
+          extraConfig = ''
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-Host $host;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          '';
+        };
+      };
+
+      "www.ws-boardinghouse.de" = {
+        enableACME = true;
+        forceSSL = true;
+        globalRedirect = "ws-boardinghouse.de";
+      };
     };
   };
 
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "selim@latch-dating.de";
+  security.acme.certs = {
+    "foo.example.com" = { email = "selim@latch-dating.de"; };
+    "ws-boardinghouse.de" = { email = "info@ws-boardinghouse.de"; };
   };
+
+  security.acme = { acceptTerms = true; };
 
   networking.hostName = "selims-server";
 
