@@ -117,6 +117,12 @@
       "latch-dating.de" = {
         enableACME = true;
         forceSSL = true;
+        globalRedirect = "www.latch-dating.de";
+      };
+
+      "www.latch-dating.de" = {
+        enableACME = true;
+        forceSSL = true;
 
         locations."/" = {
           proxyPass = "http://127.0.0.1:3000";
@@ -128,13 +134,13 @@
         };
       };
 
-      "www.latch-dating.de" = {
+      "ws-boardinghouse.de" = {
         enableACME = true;
         forceSSL = true;
-        globalRedirect = "latch-dating.de";
+        globalRedirect = "www.ws-boardinghouse.de";
       };
 
-      "ws-boardinghouse.de" = {
+      "www.ws-boardinghouse.de" = {
         enableACME = true;
         forceSSL = true;
 
@@ -146,12 +152,6 @@
             limit_req zone=perip burst=20 nodelay;
           '';
         };
-      };
-
-      "www.ws-boardinghouse.de" = {
-        enableACME = true;
-        forceSSL = true;
-        globalRedirect = "ws-boardinghouse.de";
       };
     };
   };
