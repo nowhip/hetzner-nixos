@@ -108,6 +108,11 @@
     enable = true;
     recommendedProxySettings = true;
 
+    appendHttpConfig = ''
+      limit_req_zone $binary_remote_addr zone=perip:10m rate=10r/s;
+      limit_req_status 429;
+    '';
+
     virtualHosts = {
       "latch-dating.de" = {
         enableACME = true;
@@ -116,6 +121,10 @@
         locations."/" = {
           proxyPass = "http://127.0.0.1:3000";
           proxyWebsockets = true;
+
+          extraConfig = ''
+            limit_req zone=perip burst=20 nodelay;
+          '';
         };
       };
 
@@ -132,6 +141,10 @@
         locations."/" = {
           proxyPass = "http://127.0.0.1:3001";
           proxyWebsockets = true;
+
+          extraConfig = ''
+            limit_req zone=perip burst=20 nodelay;
+          '';
         };
       };
 
