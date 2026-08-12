@@ -99,17 +99,6 @@
     };
   };
 
-  services.trustolino-landingpage = {
-    enable = true;
-    user = "root";
-
-    environment = {
-      "PORT" = "3002";
-      "DATABASE_PATH" = "/var/lib/trustolino_leads.db";
-      "VITE_COUNTDOWN_TARGET" = "2026-09-31T23:59:59Z";
-    };
-  };
-
   services.nginx = {
     enable = true;
     recommendedProxySettings = true;
@@ -159,26 +148,6 @@
           '';
         };
       };
-
-      "selimeser.de" = {
-        enableACME = true;
-        forceSSL = true;
-        globalRedirect = "www.selimeser.de";
-      };
-
-      "www.selimeser.de" = {
-        enableACME = true;
-        forceSSL = true;
-
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:3002";
-          proxyWebsockets = true;
-
-          extraConfig = ''
-            limit_req zone=perip burst=20 nodelay;
-          '';
-        };
-      };
     };
   };
 
@@ -190,8 +159,6 @@
       "www.zakkig.de".email = "selim@zakkig.de";
       "ws-boardinghouse.de".email = "info@ws-boardinghouse.de";
       "www.ws-boardinghouse.de".email = "info@ws-boardinghouse.de";
-      "selimeser.de".email = "selim@selimeser.de";
-      "www.selimeser.de".email = "selim@selimeser.de";
     };
   };
 
